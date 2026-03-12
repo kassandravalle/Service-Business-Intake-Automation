@@ -1,20 +1,26 @@
 # Workflow Overview
 
-This automation captures client inquiries and converts them into structured booking leads.
+The Service Business Intake Automation workflow captures and processes client inquiries automatically.
+
+---
 
 ## Workflow Steps
 
-1. Webhook receives inquiry
-2. Inquiry sent to LLM for analysis
-3. Structured intake data extracted
-4. Lead record created in Airtable
-5. Slack notification sent to team
+1. A client submits an inquiry through a website form or messaging platform.
+
+2. A webhook trigger captures the inquiry and sends the message to the automation workflow.
+
+3. The message is analyzed by an LLM to extract service requests, urgency, and a short summary.
+
+4. The extracted information is written to an Airtable database as a structured lead record.
+
+5. The system sends a Slack alert to notify the team of the new inquiry.
 
 ---
 
 ## Operational Benefits
 
-- Reduces manual intake processing
-- Centralizes client inquiries
-- Improves response times
-- Organizes lead management
+- Faster responses to client inquiries
+- Centralized intake records
+- Reduced manual intake work
+- Organized lead management
