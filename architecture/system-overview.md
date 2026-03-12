@@ -1,8 +1,10 @@
 # System Architecture Overview
 
-The Client Intake & Booking Assistant converts unstructured customer inquiries into structured booking leads through an automated workflow.
+The Service Business Intake Automation system captures client inquiries and converts them into structured intake records using AI-powered analysis and automation workflows.
 
-## High-Level Flow
+---
+
+## High-Level Workflow
 
 Inquiry Source  
 ↓  
@@ -10,49 +12,56 @@ Webhook Trigger
 ↓  
 AI Intake Analysis  
 ↓  
-Structured Lead Database  
+Lead Database  
 ↓  
 Team Notification
 
 ---
 
-## Step 1 — Inquiry Capture
+## Step 1 — Inquiry Sources
 
-Client inquiries are captured through webhook triggers when a message is submitted through:
+Client inquiries can originate from multiple channels:
 
-- Yelp
 - Website contact forms
-- Email
-- Messaging platforms
+- Yelp messages
+- Google messages
+- Email inquiries
 
-The webhook sends the inquiry content and metadata into the automation workflow.
+Each inquiry contains unstructured text describing a potential client's request.
 
 ---
 
-## Step 2 — AI Intake Analysis
+## Step 2 — Webhook Ingestion
 
-An LLM processes the inquiry and extracts structured booking information including:
+A webhook receives the incoming inquiry and sends the message payload into the automation workflow.
+
+The webhook acts as the entry point into the automation system.
+
+---
+
+## Step 3 — AI Intake Analysis
+
+An LLM processes the inquiry message to extract structured details including:
 
 - service requested
-- timeline
-- urgency
-- lead priority
-- suggested response
+- urgency or timeline
+- summary of request
+- recommended next action
 
-This allows unstructured messages to be converted into structured operational data.
-
----
-
-## Step 3 — Lead Database
-
-The extracted information is written into a structured Airtable database containing lead records.
-
-This provides a centralized intake system where all client inquiries can be tracked.
+This step converts unstructured text into operational data.
 
 ---
 
-## Step 4 — Team Notification
+## Step 4 — Lead Database
 
-A Slack notification is sent to alert the team when a new inquiry is received.
+The extracted data is stored in an Airtable database that acts as the intake CRM.
 
-This enables quick responses and ensures new leads are not missed.
+This creates a structured record for every inquiry.
+
+---
+
+## Step 5 — Team Notification
+
+Once a lead record is created, the system sends a Slack alert containing a summary of the inquiry.
+
+This ensures the team can respond quickly to potential clients.
